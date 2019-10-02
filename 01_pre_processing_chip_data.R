@@ -9,13 +9,4 @@ chip_data <- fread ("F1_OAM_RMNV.txt", head=T, stringsAsFactors=F)
 
 # parse the full table for separate tables of samples
 
-chip_data_list <- list()
-
-for (n in (1:48)) {
-
-	number <- paste("No", n, sep="")
-	sample <- chip_data [grepl(pattern=number, x=chip_data[,1]),]
-	chip_data_list[[n]] <- sample
-
-	}
-
+chip_data_list <- split(chip_data, rep(1:48, each=606006))
