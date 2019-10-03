@@ -29,8 +29,13 @@ names(chip_data_list) <- names_of_samples
 
 for ( n in (1:48)) {
 
-	chip_data_list [[n]] <- chip_data_list[[n]] [,c("SNP.Name", "Chr", "Position", "SNP")] 
+	chip_data_list [[n]] <- chip_data_list[[n]] [,c("SNP.Name", "Allele1...Top", "Allele2...Top", "Chr", "Position")] 
+	colnames(chip_data_list[[n]]) <- c("SNP", "A1", "A2", "Chr", "Pos")
 	
-
-
 	}
+
+# save data as .Rdata
+
+setwd ("/home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/data/Rdata")
+
+save(chip_data_list, file="chip_data_pre-processed.Rdata")
