@@ -12,6 +12,10 @@ pheno_6d <- read.csv("phenotypes_for_48_sheeps_6d.csv", head=T, stringsAsFactors
 pheno_42d <- read.csv("phenotypes_for_48_sheeps_42d.csv", head=T, stringsAsFactors=F, sep=";", fileEncoding="latin1")
 pheno_3m <- read.csv("phenotypes_for_48_sheeps_3m.csv", head=T, stringsAsFactors=F, sep=";", fileEncoding="latin1")
 
+# replace NA in pheno files to -9
+
+pheno_6d[is.na(pheno_6d)] <- -9
+
 # make map file
 
 map <- data.frame(
@@ -107,9 +111,37 @@ library(tidyr)
 
 for (n in (1:48)) {
 
-	chip_data_list[[n]] <- unite(data=chip_data_list[[n]], ...=2:3, col=AB, sep="")
+	chip_data_list[[n]] <- unite(data=chip_data_list[[n]], ...=2:3, col=AB, sep=" ")
 
 	}
 
-# make full ped files
+# make match chip_data_list matrix
+
+match_matrix <- matrix(ncol=2, nrow=48)
+match_matrix [,1] <- seq(1:48) 
+match_matrix [,2] <- apply(match_matrix, 2, function(x) paste("sample", x, sep="_"))[,1]
+
+chip_data_list[["sample_46"]] <- NULL
+match_matrix <- match_matrix[-46,]
+
+to_match <- match(names(chip_data_list), match_matrix[,2])
+
+# make AB matrix for ped files 
+
+pedAB <- matrix(ncol=nrow(chip_data_list[[1]]), nrow=47)
+rownames(pedAB) <- names(chip_data_list)
+
+for (n in (c(1:47))) {
+
+	pedAB_n <- t(as.matrix((unlist(chip_data_list[[n]]$AB))))
+
+	pedAB[n,] <- pedAB_n
+}
+
+#make ped files
+
+ped6_1_6d <- cbind(ped6_1_6d[to_match,], pedAB_n)
+ped6_1_6d <- ped6_1_6d[order(ped6_1_6d$IID),]
+
+
 
