@@ -16,16 +16,13 @@ for (n in (1:48)) {
 
 	}
 
-# delete sample_46 (phenotype data missed)
-
-chip_data_list[["sample_46"]] <- NULL
 
 # make AB matrix for ped files 
 
-pedAB <- matrix(ncol=nrow(chip_data_list[[1]]), nrow=47)
+pedAB <- matrix(ncol=nrow(chip_data_list[[1]]), nrow=48)
 rownames(pedAB) <- names(chip_data_list)
 
-for (n in (c(1:47))) {
+for (n in (c(1:48))) {
 
 	pedAB_n <- t(as.matrix((unlist(chip_data_list[[n]]$AB))))
 

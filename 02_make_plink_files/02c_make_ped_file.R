@@ -29,7 +29,7 @@ ped6 <- data.frame(
   		FatherID = 0,
   		MotherID = 0,
   		Sex = pheno[,2],
-  		Phenotype = pheno_values[,3])
+  		Phenotype = pheno[,3])
 
 # make match matrix
 

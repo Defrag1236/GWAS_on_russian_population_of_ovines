@@ -20,4 +20,4 @@ library (data.table)
 
 setwd("/home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/data/plink_files")
 
-fwrite(map, "for_all_traits.map" , quote = FALSE, col.names = FALSE, row.names = FALSE, sep = "\t")
+fwrite(map, "for_all_samples.map" , quote = FALSE, col.names = FALSE, row.names = FALSE, sep = "\t")
