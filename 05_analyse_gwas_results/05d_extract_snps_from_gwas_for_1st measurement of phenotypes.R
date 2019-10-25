@@ -23,4 +23,17 @@ pheno_6d_key <- fread("pheno_6d_key.txt", head=F, stringsAsFactors=F)
 
 # extract significant snps from each trait 
 
-trait1_snps <- subset(trait_list[[1]], trait_list[[1]]$p_wald<)
+trait_list_snps <- list()
+
+for (n in (1:11)) {
+
+	trait_list_snps[[n]] <-  subset(trait_list[[n]], trait_list[[n]]$p_wald<0.05/(33*nrow(trait_list[[n]])), select=1:12)
+
+	}
+
+
+# save results
+
+setwd("/home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/results/gemma_results")
+
+save(trait_list_snps, file="significant_snps_for_1st_measurement_of_phenotypes.Rdata")
