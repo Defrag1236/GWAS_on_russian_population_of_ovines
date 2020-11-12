@@ -39,3 +39,9 @@ plink --file ped_3m_7_index --make-bed --maf 0.1 --geno 0.05 --output-missing-ge
 
 mv *.bed *.bim *.fam *.hh *.nosex /home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/data/plink_files/ped_3m/bed/
 rm *.log 
+
+# make bed for raw data
+
+cd /home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/data/plink_files
+
+plink --file  96_animals_2020_raw --make-bed --autosome-num 26 --out 96_animals_2020_raw

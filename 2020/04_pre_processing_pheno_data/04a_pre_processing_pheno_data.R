@@ -100,6 +100,14 @@ pheno_qc_pool_2 <- pheno_qc_pool_2[match(rownames(pheno_qc_pool_2), pool_2[,1]),
 pheno_qc_pool_3 <- pheno_qc[(pheno[,1] %in% pool_3[,1]),]
 pheno_qc_pool_3 <- pheno_qc_pool_3[match(rownames(pheno_qc_pool_3), pool_3[,1]),]
 
+# calculate sample size for each trait
+
+sample_size_pool_1 <- colSums(!(is.na(pheno_qc_pool_1)))
+sample_size_pool_2 <- colSums(!(is.na(pheno_qc_pool_2)))
+sample_size_pool_3 <- colSums(!(is.na(pheno_qc_pool_3)))
+
+
+
 
 # save qc pheno 
 
@@ -151,3 +159,10 @@ setwd("/home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovine
 write.table(pool_1_cov, "pool_1_cov.txt", col.names=F, row.names=F, quote=F)
 write.table(pool_2_cov, "pool_2_cov.txt", col.names=F, row.names=F, quote=F)
 write.table(pool_3_cov, "pool_3_cov.txt", col.names=F, row.names=F, quote=F)
+
+# save sample size files
+setwd("/home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/data/pheno_data")
+
+write.table(as.matrix(sample_size_pool_1), "sample_size_pool_1.txt", col.names=F, row.names=T, quote=F)
+write.table(as.matrix(sample_size_pool_2), "sample_size_pool_2.txt", col.names=F, row.names=T, quote=F)
+write.table(as.matrix(sample_size_pool_3), "sample_size_pool_3.txt", col.names=F, row.names=T, quote=F)

@@ -31,7 +31,7 @@ for (n in (1:7)) {
  
 }
 
-for (n in (c(1:2,7))) {
+for (n in (c(1:2,5,7))) {
 	
 	name_to_read_6m <- paste("index_", n, "_6m_pool_1.assoc.txt", sep="")
 	name_to_list_6m <- paste("index_", n, "_6m_pool_1", sep="")
@@ -101,7 +101,7 @@ for (n in (c(1:7))) {
 }
 
 
-for (n in (c(1:6))) {
+for (n in (c(1:7))) {
 
 	for (i in (c(1:8))) {
 
@@ -123,7 +123,7 @@ for (n in (c(1:6))) {
 }
 
 
-for (n in (c(1:2, 7))) {
+for (n in (c(1:2,5,7))) {
 
 	for (i in (c(1:8))) {
 

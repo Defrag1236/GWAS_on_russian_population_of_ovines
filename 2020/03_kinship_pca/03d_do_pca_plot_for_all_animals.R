@@ -39,7 +39,7 @@ for_plot[grepl("^Katahdin$", for_plot$breed),4] <- "katahdin"
 
 # make plot 
 
-setwd("/home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/plots")
+setwd("/home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/plots/pca_on_clean_data")
 
 pdf("pca_plot.pdf", width=16, height=10)
 
@@ -166,7 +166,7 @@ for_plot_pheno[grepl("^Katahdin$", for_plot_pheno$breed),4] <- "katahdin"
 
 ## make plot pca for animals with pheno
 
-setwd("/home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/plots")
+setwd("/home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/plots/pca_on_clean_data")
 
 pdf("pca_plot_with_pheno.pdf", width=16, height=10)
 
