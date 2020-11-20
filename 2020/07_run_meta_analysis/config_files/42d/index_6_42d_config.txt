@@ -1,0 +1,17 @@
+SCHEME STDERR
+AVERAGEFREQ ON
+
+MARKER rs
+ALLELE allele1 allele0
+EFFECT beta
+PVALUE p_wald
+SEPARATOR TAB
+STDERR se
+FREQ af
+
+PROCESS /home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/gwas/pool_1/output/index_6_42d_pool_1.assoc.txt
+PROCESS /home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/gwas/pool_2/output/index_6_42d_pool_2.assoc.txt
+
+ANALYZE
+
+QUIT

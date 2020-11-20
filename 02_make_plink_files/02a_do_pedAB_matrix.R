@@ -12,7 +12,7 @@ library(tidyr)
 
 for (n in (1:48)) {
 
-	chip_data_list[[n]] <- unite(data=chip_data_list[[n]], ...=2:3, col=AB, sep=" ")
+	chip_data_list[[n]] <- unite(data=chip_data_list[[n]], c("A1","A2"), col=AB, sep=" ")
 
 	}
 
