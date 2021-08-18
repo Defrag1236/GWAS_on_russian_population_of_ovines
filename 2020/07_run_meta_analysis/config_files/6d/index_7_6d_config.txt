@@ -1,6 +1,9 @@
 SCHEME STDERR
 AVERAGEFREQ ON
 
+CUSTOMVARIABLE n_total 
+LABEL n_total AS n_obs
+
 MARKER rs
 ALLELE allele1 allele0
 EFFECT beta
@@ -9,8 +12,8 @@ SEPARATOR TAB
 STDERR se
 FREQ af
 
-PROCESS /home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/gwas/pool_1/output/index_7_6d_pool_1.assoc.txt
-PROCESS /home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/gwas/pool_2/output/index_7_6d_pool_2.assoc.txt
+PROCESS /home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/gwas/pool_1/pool_1_with_n_obs/index_7_6d_pool_1.assoc.txt
+PROCESS /home/common/projects/ovine_selection/GWAS_on_russian_population_of_ovines/2020/results/gwas/pool_2/pool_2_with_n_obs/index_7_6d_pool_2.assoc.txt
 
 ANALYZE
 
